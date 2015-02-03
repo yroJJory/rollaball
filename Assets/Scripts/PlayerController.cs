@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "PickUp") {
-			Fabric.EventManager.Instance.PostEvent("FX/Pickup-Item", other.gameObject);
+			AudioManager.PlaySound("FX/Pickup-Item", other.gameObject);
 			other.gameObject.SetActive(false);
 			count++;
 			
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 			
 			if (count >= 12) {
 				winText.text = "YOU WIN!";
-				Fabric.EventManager.Instance.PostEvent("FX/Game-End", other.gameObject);
+				AudioManager.PlaySound("FX/Game-End", other.gameObject);
 			}
 		}
 	}
