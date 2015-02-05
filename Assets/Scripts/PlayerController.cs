@@ -4,8 +4,6 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-	bool mainMusicPlaying = false;
-
 	public float speed;
 	public Text countText;
 	public Text winText;
@@ -17,20 +15,6 @@ public class PlayerController : MonoBehaviour {
 		count = 0;
 //		winText.text = "";
 		SetCountText();
-	}
-
-	void Awake () {
-		// Load the Fabric manager by loading up the Audio scene!
-		AudioManager.LoadFabric();
-	}
-
-	void Update () {
-		if (!mainMusicPlaying) {
-			if (AudioManager.FabricLoaded) {
-				mainMusicPlaying = true;
-				AudioManager.PlaySound("MX/Main_Loop");
-			}
-		}
 	}
 
 	void FixedUpdate () {
