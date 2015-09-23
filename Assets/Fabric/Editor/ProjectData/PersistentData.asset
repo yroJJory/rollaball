@@ -14,5 +14,7 @@ MonoBehaviour:
   _eventLogFilterEventActions: 010100000000000000000000000000000000000000000000
   _displayEventMonitorSceneInfo: 1
   _displayAudioClipWaveform: 1
-  _playmodePersistance: 1
+  _playmodePersistance: 0
+  _audioAssetImporter: 0
   _maxRandomization3DDistance: 10
+  _reaperPath: C:/Program Files/REAPER (x64)/reaper.exe
