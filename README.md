@@ -15,4 +15,4 @@ Why would you want to setup Fabric in this manner? Because it puts audio configu
 
 ## Project notes
 
-This was last built using Unity 4.6.4p3 and includes Fabric 2.2.2. If you want to use this with Unity 5.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric")
+This was last built using [Unity 4.6.4](http://unity3d.com/get-unity/download/archive "Unity 4.x Downloads") and includes Fabric 2.2.2. If you want to use this with Unity 5.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric Downloads")
