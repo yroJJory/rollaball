@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 		count = 0;
 //		winText.text = "";
 		SetCountText();
+		AudioManager.PlaySound("FX/Ball-Roll", this.transform.gameObject);
 	}
 
 	void FixedUpdate () {
@@ -24,6 +25,21 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		
 		rigidbody.AddForce(movement * speed * Time.deltaTime);
+		var vel = rigidbody.velocity;
+
+		// make sure these values are all positive,
+		// since we don't care about direction, only movement
+		vel.x = Mathf.Abs(vel.x);
+		vel.y = Mathf.Abs(vel.y);
+		vel.z = Mathf.Abs(vel.z);
+
+		// a simple hack to see if the ball is moving
+		// if the ball is moving in *any* direction, totalVel would *have* to be more than 0.
+		var totalVel = vel.x + vel.y + vel.z;
+		if (totalVel > 0.0) {
+			// send to the velocity parameter which controls our sound's volume
+			Fabric.EventManager.Instance.SetParameter("FX/Ball-Roll", "Velocity", totalVel, gameObject);
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
