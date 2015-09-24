@@ -421,7 +421,7 @@ MonoBehaviour:
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
   _overrideAudioMixerGroup: 0
-  _audioMixerGroup: {fileID: 0}
+  _audioMixerGroup: {fileID: 24331324, guid: 6a0f6b33dffa944b58f77ffa76bb0298, type: 2}
   _audioBusName: 
   _overrideAudioBus: 0
   _overrideMusicTimeSettings: 0
@@ -615,7 +615,7 @@ MonoBehaviour:
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
   _overrideAudioMixerGroup: 0
-  _audioMixerGroup: {fileID: 0}
+  _audioMixerGroup: {fileID: 24385540, guid: 6a0f6b33dffa944b58f77ffa76bb0298, type: 2}
   _audioBusName: 
   _overrideAudioBus: 0
   _overrideMusicTimeSettings: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
   _overrideAudioMixerGroup: 0
-  _audioMixerGroup: {fileID: 0}
+  _audioMixerGroup: {fileID: 24307076, guid: 6a0f6b33dffa944b58f77ffa76bb0298, type: 2}
   _audioBusName: 
   _overrideAudioBus: 0
   _overrideMusicTimeSettings: 0
