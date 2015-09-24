@@ -24,8 +24,8 @@ public class PlayerController : MonoBehaviour {
 		
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		
-		rigidbody.AddForce(movement * speed * Time.deltaTime);
-		var vel = rigidbody.velocity;
+		GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
+		var vel = GetComponent<Rigidbody>().velocity;
 
 		// make sure these values are all positive,
 		// since we don't care about direction, only movement
