@@ -340,7 +340,7 @@ MonoBehaviour:
         _y: 1.58489256e-05
         _curveType: 1
         _locked: 0
-      - _x: .117499992
+      - _x: .203999996
         _y: 1
         _curveType: 1
         _locked: 0
@@ -1348,6 +1348,9 @@ MonoBehaviour:
       _value: 0
       _time: 0
       _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
 --- !u!114 &1605794283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,6 +1393,8 @@ MonoBehaviour:
   _bypassEffects: 0
   _bypassListenerEffects: 0
   _bypassReverbZones: 0
+  _overrideAudioMixerGroup: 0
+  _audioMixerGroup: {fileID: 0}
   _audioBusName: 
   _overrideAudioBus: 0
   _overrideMusicTimeSettings: 0
