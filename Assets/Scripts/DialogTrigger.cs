@@ -3,6 +3,10 @@ using System.Collections;
 
 public class DialogTrigger : MonoBehaviour {
 
+	// public variable on the script, just to demonstrate 
+	// that you can set the voice lines as variables.
+	public string dialogFilename = "";
+
 	void OnTriggerEnter () {
 		// There are three vitally important parts that have to be setup.
 		// 1. You must put the dialog inside /Assets/Resources
@@ -16,7 +20,7 @@ public class DialogTrigger : MonoBehaviour {
 
 		// Set the current line of dialog.
 		// You would do this each time you load a new line to be played.
-		AudioManager.SetDialogLine("dlg_intro_001", "DX/Dialog");
+		AudioManager.SetDialogLine(dialogFilename, "DX/Dialog");
 
 		// Trigger the dialog to play.
 		AudioManager.PlaySound("DX/Dialog");
