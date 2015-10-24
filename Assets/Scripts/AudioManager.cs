@@ -46,6 +46,10 @@ public static class AudioManager
 		}
     }
 
+	public static void SetDialogLine(string dialogEvent, string componentName)
+	{
+		Fabric.EventManager.Instance.PostEvent(componentName, Fabric.EventAction.SetAudioClipReference, dialogEvent);
+	}
 	public static void LoadFabric()
 	{
 		if (FabricLoaded) { // || Application.isLoadingLevel) {
