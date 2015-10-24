@@ -13,6 +13,10 @@ For reference, the way this works is the FabricManager and Fabric EventManager a
 
 Why would you want to setup Fabric in this manner? Because it puts audio configuration into a scene that only the sound implementer will need to modify, making it less likely that the effort made by the sound implementer will be overwritten by other project contributors. It also sets up a centralized EventManager that can be loaded into any scene at runtime. Lastly, a test environment can be built within the Audio scene and enabled when needed, which makes mixing far less work.
 
+## Addendum
+
+This particular branch includes a demonstration of how to setup a dialog component and two languages.
+
 ## Project notes
 
-This was last built using [Unity 5.0.2](http://unity3d.com/get-unity/download/archive "Unity Downloads") and includes Fabric 2.2.2. If you want to use this with Unity 4.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric Downloads")
+This was last built using [Unity 5.2.1p3](http://unity3d.com/get-unity/download/archive "Unity Downloads") and includes Fabric 2.2.2. If you want to use this with Unity 4.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric Downloads")
