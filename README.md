@@ -15,7 +15,7 @@ Why would you want to setup Fabric in this manner? Because it puts audio configu
 
 ## Fabric Timeline
 
-To setup the ball rolling sound, I have used a Fabric Timeline Component with a listener called FX/Ball-Roll. Ball-Roll is started when the PlayerController is initialized. The object's velocity is summed and used to set a Velocity parameter setup in the Timeline Component. The Velocity parameter is set to control the volume of the sound, so as Velocity gets larger, the volume increases. The parameter is updated in PlayerController.FixedUpdate().
+To setup the ball rolling sound, I have used a Fabric Timeline Component with a listener called `FX/Ball-Roll`. `FX/Ball-Roll` is started when `PlayerController` is initialized. The ball object's velocity is summed and used to set a Velocity parameter setup in the Timeline component. The Velocity parameter is set to control the volume of the sound, so as Velocity gets higher, the volume increases. The parameter is updated in `PlayerController.FixedUpdate()`. You can see this in Window -> Fabric -> Timeline when you have the Ball-Roll gameobject selected in the hierarchy.
 
 ## Dialog and localization
 
