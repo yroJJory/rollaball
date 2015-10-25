@@ -1450,7 +1450,7 @@ MonoBehaviour:
   _pitchRandomization: 0
   _override2DProperties: 0
   _pan2D: 0
-  _pan2DRandomization: 0
+  _pan2DRandomization: 1
   _override3DProperties: 0
   _priority: 128
   _panLevel: 0

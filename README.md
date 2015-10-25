@@ -13,9 +13,13 @@ For reference, the way this works is the FabricManager and Fabric EventManager a
 
 Why would you want to setup Fabric in this manner? Because it puts audio configuration into a scene that only the sound implementer will need to modify, making it less likely that the effort made by the sound implementer will be overwritten by other project contributors. It also sets up a centralized EventManager that can be loaded into any scene at runtime. Lastly, a test environment can be built within the Audio scene and enabled when needed, which makes mixing far less work.
 
-## Addendum
+## Fabric Timeline
 
-This particular branch includes a demonstration of how to setup a dialog component and two languages.
+To setup the ball rolling sound, I have used a Fabric Timeline Component with a listener called FX/Ball-Roll. Ball-Roll is started when the PlayerController is initialized. The object's velocity is summed and used to set a Velocity parameter setup in the Timeline Component. The Velocity parameter is set to control the volume of the sound, so as Velocity gets larger, the volume increases. The parameter is updated in PlayerController.FixedUpdate().
+
+## Dialog and localization
+
+This version includes a demonstration of how to setup a dialog component and two sample languages. As the player picks up blocks, the count will be spoken in the language selected in the FabricManager. You can change the language during runtime to switch between the English and Norwegian sets.
 
 ## Project notes
 

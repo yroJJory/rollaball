@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	bool mainMusicPlaying = false;
+	private bool mainMusicPlaying = false;
 
 	void Awake () {
 		// Load the Fabric manager by loading up the Audio scene!

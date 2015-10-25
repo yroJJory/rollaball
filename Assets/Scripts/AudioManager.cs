@@ -50,6 +50,7 @@ public static class AudioManager
 	{
 		Fabric.EventManager.Instance.PostEvent(componentName, Fabric.EventAction.SetAudioClipReference, dialogEvent);
 	}
+
 	public static void LoadFabric()
 	{
 		if (FabricLoaded) { // || Application.isLoadingLevel) {
