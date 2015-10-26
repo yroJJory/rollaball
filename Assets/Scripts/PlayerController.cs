@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public Text countText;
 	public Text winText;
 	private int count;
+	private string language = "English";
 	
 	void Start() {
 		// get the screen text components
@@ -21,6 +22,20 @@ public class PlayerController : MonoBehaviour {
 		// Start the ball-rolling sound, which will not be audible
 		// until the velocity has changed and been detected in FixedUpdate()
 		AudioManager.PlaySound("FX/Ball-Roll", this.transform.gameObject);
+	}
+	
+	void Update() {
+		string lastLanguage = language;
+
+		// Check the game's language setting
+		GetLanguageSetting();
+
+		// if the language has changed since last time
+		// update the on-screen text
+		if (lastLanguage != language) {
+			SetCountText();
+			lastLanguage = language;
+		}
 	}
 
 	void FixedUpdate () {
@@ -69,7 +84,12 @@ public class PlayerController : MonoBehaviour {
 			// if we reach 12, the game is over
 			if (count >= 12) {
 				// update the text to indicate game over state
-				winText.text = "YOU WIN!";
+				if (language == "Norwegian") {
+					winText.text = "DU ER VINNERET!";
+				}
+				else {
+					winText.text = "YOU WIN!";
+				}
 
 				// Play the game end sound
 				AudioManager.PlaySound("FX/Game-End", other.gameObject);
@@ -77,10 +97,23 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	// Ask Fabric what language it is set to
+	// and update our variable to store the response
+	void GetLanguageSetting() {
+		// what language we are set to
+		language = Fabric.FabricManager.Instance.GetLanguageName();
+	}
+
 	// Update the text on screen 
 	// with the current count of picked up blocks
 	void SetCountText() {
-		countText.text = "Count: " + count.ToString();
+
+		if (language == "Norwegian") {
+			countText.text = "Tell: " + count.ToString();
+		}
+		else {
+			countText.text = "Count: " + count.ToString();
+		}
 	}
 	
 	// Play a voice file using the number of picked up blocks
@@ -90,10 +123,6 @@ public class PlayerController : MonoBehaviour {
 		// 2. You must setup the languages and paths for them in Window -> Fabric -> Lanuguages
 		// 3. You must configure the default language in the FabricManager.
 		//    -- You can change the language setting during runtime to switch languages manually!
-
-		// just for testing purposes, let's see what language we are set to
-		string languageName = Fabric.FabricManager.Instance.GetLanguageName();
-		Debug.Log("Our language is set to " + languageName + ".");
 
 		// Set the current line of dialog.
 		// You would do this each time you load a new line to be played.
