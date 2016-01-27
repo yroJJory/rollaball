@@ -17,4 +17,5 @@ MonoBehaviour:
   _playmodePersistance: 1
   _audioAssetImporter: 0
   _maxRandomization3DDistance: 1000
+  _enableHiearchyIcons: 1
   _reaperPath: C:/Program Files/REAPER (x64)/reaper.exe
