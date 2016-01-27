@@ -23,4 +23,4 @@ This version includes a demonstration of how to setup a dialog component and two
 
 ## Project notes
 
-This was last built using [Unity 5.2.1p3](http://unity3d.com/get-unity/download/archive "Unity Downloads") and includes Fabric 2.2.2. If you want to use this with Unity 4.x or Unity 5.0.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric Downloads"). There are branches with older versions of this project for Unity 5.0.2 and 4.6.4, but the master branch will always have the most updated code.
+This was last built using [Unity 5.2.2f1](http://unity3d.com/get-unity/download/archive "Unity Downloads") and includes Fabric 2.2.4. If you want to use this with Unity 4.x or Unity 5.0.x, a different build of Fabric needs to be obtained from the [Tazman Audio website](http://tazman-audio.co.uk/#!downloads/c16et "Fabric Downloads"). There are branches with older versions of this project for Unity 5.0.2 and 4.6.4, but the master branch will always have the most updated code.
