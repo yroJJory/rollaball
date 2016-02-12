@@ -1829,6 +1829,55 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7e309d6408284e8eaa06cda06c9fb41, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1701089448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1701089450}
+  - 114: {fileID: 1701089449}
+  m_Layer: 0
+  m_Name: Voice Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1701089449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701089448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6e61853ed15466eb3b1c83f6ead697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DX_Line01: numbers_01
+  DX_Line02: numbers_02
+  DX_Line03: numbers_03
+  DX_Line04: numbers_04
+  DX_Line05: numbers_05
+  DX_Line06: numbers_06
+  DX_Line07: numbers_07
+  DX_Line08: numbers_08
+  DX_Line09: numbers_09
+  DX_Line10: numbers_10
+--- !u!4 &1701089450
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1701089448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1716987940
 GameObject:
   m_ObjectHideFlags: 0
