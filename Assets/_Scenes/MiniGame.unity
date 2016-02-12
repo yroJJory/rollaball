@@ -1856,16 +1856,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6e61853ed15466eb3b1c83f6ead697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DX_Line01: numbers_01
-  DX_Line02: numbers_02
-  DX_Line03: numbers_03
-  DX_Line04: numbers_04
-  DX_Line05: numbers_05
-  DX_Line06: numbers_06
-  DX_Line07: numbers_07
-  DX_Line08: numbers_08
-  DX_Line09: numbers_09
-  DX_Line10: numbers_10
+  voiceline01:
+    line: numbers_01
+  voiceline02:
+    line: numbers_02
+  voiceline03:
+    line: numbers_03
+  voiceline04:
+    line: numbers_04
+  voiceline05:
+    line: numbers_05
+  voiceline06:
+    line: numbers_06
+  voiceline07:
+    line: numbers_07
+  voiceline08:
+    line: numbers_08
+  voiceline09:
+    line: numbers_09
+  voiceline10:
+    line: numbers_10
 --- !u!4 &1701089450
 Transform:
   m_ObjectHideFlags: 0
