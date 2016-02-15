@@ -14,8 +14,8 @@ public static class DialogList {
 	//	bool
 				//showListLabel = (options & EditorListOption.ListLabel) != 0,
 				//showListSize = (options & EditorListOption.ListSize) != 0;
-				bool showListLabel = true;
-				bool showListSize = true;
+				bool showListLabel = false;
+				bool showListSize = false;
 
 		if (showListLabel) {
 			EditorGUILayout.PropertyField(list);

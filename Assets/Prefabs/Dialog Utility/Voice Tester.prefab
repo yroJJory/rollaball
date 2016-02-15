@@ -51,6 +51,8 @@ MonoBehaviour:
   - numbers_08
   - numbers_09
   - numbers_10
+  - numbers_11
+  - numbers_12
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
