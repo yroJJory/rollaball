@@ -11,7 +11,7 @@ public static class AudioManager
 	}
 
 	private static void playAudioWithPosition(string eventName, GameObject ob)
-	{	
+	{
 		//AUDIO: with position
 		Fabric.EventManager.Instance.PostEvent(eventName, ob);
 	}
@@ -38,6 +38,11 @@ public static class AudioManager
 		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
 	}
 
+	public static void StopAllSounds(string n)
+	{
+		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
+	}
+
 	public static void FadeOutMusic(string n) {
 		// fade out the music!
 		Fabric.Component component = Fabric.FabricManager.Instance.GetComponentByName(n);
@@ -49,6 +54,16 @@ public static class AudioManager
 	public static void SetDialogLine(string dialogEvent, string componentName)
 	{
 		Fabric.EventManager.Instance.PostEvent(componentName, Fabric.EventAction.SetAudioClipReference, dialogEvent);
+	}
+
+	public static bool PauseSound(string n) {
+		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.PauseSound);
+		return true;
+	}
+
+	public static bool UnpauseSound(string n) {
+		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.UnpauseSound);
+		return true;
 	}
 
 	public static void LoadFabric()
