@@ -9,7 +9,20 @@ public class PlayerController : MonoBehaviour {
 	public Text winText;
 	private int count;
 	private string language = "English";
-	
+
+	#region Audio Events
+
+	// Setup a section in the Inspector where
+	// our sound events can be displayed/customized
+	[Header("Audio Events")]
+
+	public string FX_BallRoll = "FX/Ball-Roll";
+	public string FX_PickupItem = "FX/Pickup-Item";
+	public string FX_GameEnd = "FX/Game-End";
+	public string DX_Dialog = "DX/Dialog";
+
+	#endregion
+
 	void Start() {
 		// get the screen text components
 		Text countText = GetComponent("countText") as Text;
@@ -21,9 +34,9 @@ public class PlayerController : MonoBehaviour {
 
 		// Start the ball-rolling sound, which will not be audible
 		// until the velocity has changed and been detected in FixedUpdate()
-		AudioManager.PlaySound("FX/Ball-Roll", this.transform.gameObject);
+		AudioManager.PlaySound(FX_BallRoll, this.transform.gameObject);
 	}
-	
+
 	void Update() {
 		string lastLanguage = language;
 
@@ -41,9 +54,9 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
-		
+
 		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-		
+
 		GetComponent<Rigidbody>().AddForce(movement * speed * Time.deltaTime);
 		var vel = GetComponent<Rigidbody>().velocity;
 
@@ -54,12 +67,12 @@ public class PlayerController : MonoBehaviour {
 		vel.z = Mathf.Abs(vel.z);
 
 		// a simple hack to see if the ball is moving
-		// if the ball is moving in *any* direction, 
+		// if the ball is moving in *any* direction,
 		// totalVel would *have* to be more than 0.
 		var totalVel = vel.x + vel.y + vel.z;
 		if (totalVel > 0.0) {
 			// send to the velocity parameter which controls our sound's volume
-			Fabric.EventManager.Instance.SetParameter("FX/Ball-Roll", "Velocity", totalVel, gameObject);
+			Fabric.EventManager.Instance.SetParameter(FX_BallRoll, "Velocity", totalVel, gameObject);
 		}
 	}
 
@@ -67,7 +80,7 @@ public class PlayerController : MonoBehaviour {
 		// if we collided with a pickup cube
 		if (other.gameObject.tag == "PickUp") {
 			// play the pickup sound
-			AudioManager.PlaySound("FX/Pickup-Item", other.gameObject);
+			AudioManager.PlaySound(FX_PickupItem, other.gameObject);
 
 			// hide the picked up item
 			other.gameObject.SetActive(false);
@@ -76,8 +89,8 @@ public class PlayerController : MonoBehaviour {
 			count++;
 
 			// update the screen text
-			SetCountText();	
-		
+			SetCountText();
+
 			// set and trigger the dialog
 			PlayPickupNumberDX();
 
@@ -92,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 				}
 
 				// Play the game end sound
-				AudioManager.PlaySound("FX/Game-End", other.gameObject);
+				AudioManager.PlaySound(FX_GameEnd, other.gameObject);
 			}
 		}
 	}
@@ -104,7 +117,7 @@ public class PlayerController : MonoBehaviour {
 		language = Fabric.FabricManager.Instance.GetLanguageName();
 	}
 
-	// Update the text on screen 
+	// Update the text on screen
 	// with the current count of picked up blocks
 	void SetCountText() {
 
@@ -115,7 +128,7 @@ public class PlayerController : MonoBehaviour {
 			countText.text = "Count: " + count.ToString();
 		}
 	}
-	
+
 	// Play a voice file using the number of picked up blocks
 	void PlayPickupNumberDX () {
 		// There are three vitally important parts that have to be setup.
@@ -127,9 +140,9 @@ public class PlayerController : MonoBehaviour {
 		// Set the current line of dialog.
 		// You would do this each time you load a new line to be played.
 		string fileNumber = count.ToString("00");
-		AudioManager.SetDialogLine(("numbers_" + (fileNumber)), "DX/Dialog");
+		AudioManager.SetDialogLine(("numbers_" + (fileNumber)), DX_Dialog);
 
 		// Trigger the dialog to play.
-		AudioManager.PlaySound("DX/Dialog", this.transform.gameObject);
+		AudioManager.PlaySound(DX_Dialog, this.transform.gameObject);
 	}
 }
