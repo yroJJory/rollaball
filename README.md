@@ -5,7 +5,7 @@ Implementation of Unity tutorial game with Fabric code wired up how I like it.
 
 This is a very simple game. The game itself comes from [a tutorial](http://unity3d.com/learn/tutorials/projects/roll-a-ball) on the Unity website.
 
-This example demonstrates how to setup Fabric audio middleware in Unity so that a project is ready to use it in any of its scenes. Fabric is NOT free software. It can be obtained at [Tazman Audio's website](http://www.tazman-audio.co.uk/#!fabric/c1oba "Fabric")
+This example demonstrates how to setup Fabric audio middleware in Unity so that a project is ready to use it in any of its scenes. Fabric is NOT free software. It can be obtained at [Tazman Audio's website](http://www.tazman-audio.co.uk/#!fabric/c1oba "Fabric"). The appropraite build of Fabric has been included in this project with permission of Tazman Audio.
 
 ## A bit of helpful info
 
@@ -19,7 +19,14 @@ To setup the ball rolling sound, I have used a Fabric Timeline Component with a 
 
 ## Dialog and localization
 
-This version includes a demonstration of how to setup a dialog component and two sample languages. As the player picks up blocks, the count will be spoken in the language selected in the FabricManager. You can change the language during runtime to switch between the English and Norwegian sets.
+A demonstration of how to setup a dialog component and two sample languages is included. As the player picks up blocks, the count will be spoken in the language selected in the FabricManager. You can change the language during runtime to switch between the English and Norwegian sets.
+
+There is also a "Voice Tester" gameobject in the MiniGame scene, which can be used to play the dialog lines (in either language) while the game is in runtime. This is a simple utility that is useful when needing to test out dialog in a game without relying on your backend dialog system being fully wired up.
+
+## Pausing and unpausing the sound
+
+The project includes the ability to pause the game by hitting the ESC key. When you pause the game, all four main sound channels will be paused and text will appear on the screen to let you know the game is paused. The sound channels are paused individually because in many cases you might want only to pause the SFX and DX, but not the Amb or MX.
+
 
 ## Project notes
 
