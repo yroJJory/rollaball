@@ -1400,7 +1400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0b586fa140e4a3e9f9bdd198959a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseText: {fileID: 0}
   MX_MainLoop: MX/Main_Loop
   Controller_SFX: Controller/SFX
   Controller_MX: Controller/MX
@@ -1483,7 +1482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Paused!
+  m_Text: 
 --- !u!222 &1180587595
 CanvasRenderer:
   m_ObjectHideFlags: 0
