@@ -9,8 +9,26 @@ GameObject:
   m_Component:
   - 4: {fileID: 482590}
   - 114: {fileID: 11453632}
+  - 114: {fileID: 11496190}
   m_Layer: 0
   m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &122558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445022}
+  - 114: {fileID: 11436594}
+  - 114: {fileID: 11469668}
+  m_Layer: 0
+  m_Name: Amb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +143,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400062}
   - 114: {fileID: 11412356}
+  - 114: {fileID: 11437504}
   m_Layer: 0
   m_Name: MX
   m_TagString: Untagged
@@ -158,6 +177,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 407086}
   - 114: {fileID: 11476548}
+  - 114: {fileID: 11464040}
   m_Layer: 0
   m_Name: DX
   m_TagString: Untagged
@@ -258,6 +278,7 @@ Transform:
   - {fileID: 482590}
   - {fileID: 400062}
   - {fileID: 407086}
+  - {fileID: 445022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &407086
@@ -310,6 +331,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 482590}
   m_RootOrder: 0
+--- !u!4 &445022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 401494}
+  m_RootOrder: 3
 --- !u!4 &456326
 Transform:
   m_ObjectHideFlags: 1
@@ -512,6 +545,7 @@ MonoBehaviour:
   _audioClip: {fileID: 0}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -521,6 +555,7 @@ MonoBehaviour:
   _loop: 0
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -531,6 +566,7 @@ MonoBehaviour:
   _markers: []
   _regions: []
   _audioClipReference: 
+  _dialogAudioLoadedFrom: 0
 --- !u!114 &11412356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -749,6 +785,7 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: e2b2311ccec29457ab454c5e7fe7ccdd, type: 3}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -758,6 +795,7 @@ MonoBehaviour:
   _loop: 1
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -980,6 +1018,105 @@ MonoBehaviour:
     _transitionToSnapshotData:
       _snapshot: 
       _timeToReach: 0
+--- !u!114 &11436594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 45463070, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxInstances: 1
+  _stealingBehaviour: 0
+  _minimumPlaybackInterval: 0
+  _overrideParentVolume: 0
+  _volume: 1
+  _volumeRandomization: 0
+  _mute: 0
+  _overrideParentPitch: 0
+  _pitch: 1
+  _pitchRandomization: 0
+  _override2DProperties: 0
+  _pan2D: 0
+  _pan2DRandomization: 0
+  _override3DProperties: 0
+  _priority: 128
+  _panLevel: 0
+  _spreadLevel: 0
+  _dopplerLevel: 1
+  _maxDistance: 100
+  _minDistance: 10
+  _rolloffMode: 0
+  _overrideFadeProperties: 0
+  _fadeInTime: 0
+  _fadeInCurve: .5
+  _fadeOutTime: 0
+  _fadeOutCurve: .5
+  _reverbZoneMix: 1
+  _overrideBypassProperties: 0
+  _bypassEffects: 0
+  _bypassListenerEffects: 0
+  _bypassReverbZones: 0
+  _overrideAudioMixerGroup: 0
+  _audioMixerGroup: {fileID: 24314202, guid: 6a0f6b33dffa944b58f77ffa76bb0298, type: 2}
+  _audioBusName: 
+  _overrideAudioBus: 0
+  _overrideMusicTimeSettings: 0
+  _musicTimeSettingsIndex: -1
+  _musicTempo: -1
+  _musicTimeSignatureLower: 0
+  _musicTimeSignatureUpper: 0
+  _probability: 100
+  _multipleInstancesPerGameObject: 1
+  _componentVirtualization: 0
+  _overrideVolumeThreshold: 0
+  _volumeThreshold: 1
+  _virtualizationBehavior: 1
+  _RTPManager:
+    _parameters: []
+    _reference: {fileID: 0}
+  Guid: 
+  _componentHolder: {fileID: 0}
+  _onEventNotifyEventName: 
+  _showInMixerView: 1
+  _targetGroupComponentPath: 
+  _ignoreUnloadUnusedAssets: 1
+--- !u!114 &11437504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: Controller/MX
+  _eventID: 0
+  _overrideEventTriggerAction: 0
+  _overrideParameters:
+    _overrideIncomingEventAction: 0
+    _incomingEventAction: 0
+    _overrideEventAction: 0
+    _type: 0
+    _floatParameter: 1
+    _stringParameter: 
+    _switchPresetData:
+      _sourcePreset: 
+      _targetPreset: 
+    _dspParameterData:
+      _dspType: 0
+      _parameter: 
+      _value: 0
+      _time: 0
+      _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
 --- !u!114 &11453632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1112,6 +1249,7 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: 5f137fa7c78c240c5aad8538fc5e8696, type: 3}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -1121,6 +1259,7 @@ MonoBehaviour:
   _loop: 1
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -1196,6 +1335,7 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: cde375b0120e24052a8fe173df42fda8, type: 3}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -1205,6 +1345,7 @@ MonoBehaviour:
   _loop: 0
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -1268,6 +1409,40 @@ MonoBehaviour:
   _musicTimeSignatures: []
   _fabricEditorPath: Assets/Fabric/Editor
   _numVirtualizationEvents: 1000
+  _onApplicationPauseBehavior: 0
+--- !u!114 &11464040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: Controller/DX
+  _eventID: 0
+  _overrideEventTriggerAction: 0
+  _overrideParameters:
+    _overrideIncomingEventAction: 0
+    _incomingEventAction: 0
+    _overrideEventAction: 0
+    _type: 0
+    _floatParameter: 1
+    _stringParameter: 
+    _switchPresetData:
+      _sourcePreset: 
+      _targetPreset: 
+    _dspParameterData:
+      _dspType: 0
+      _parameter: 
+      _value: 0
+      _time: 0
+      _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
 --- !u!114 &11466678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1313,6 +1488,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventName: FX/Game-End
+  _eventID: 0
+  _overrideEventTriggerAction: 0
+  _overrideParameters:
+    _overrideIncomingEventAction: 0
+    _incomingEventAction: 0
+    _overrideEventAction: 0
+    _type: 0
+    _floatParameter: 1
+    _stringParameter: 
+    _switchPresetData:
+      _sourcePreset: 
+      _targetPreset: 
+    _dspParameterData:
+      _dspType: 0
+      _parameter: 
+      _value: 0
+      _time: 0
+      _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
+--- !u!114 &11469668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: Controller/Amb
   _eventID: 0
   _overrideEventTriggerAction: 0
   _overrideParameters:
@@ -1504,15 +1712,12 @@ MonoBehaviour:
   m_Script: {fileID: 181790006, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _globalParameterManager:
-    _globalRTParameters:
-      _keys: []
-      _data: []
-    _globalSwitches:
-      _keys: []
-      _data: []
   _eventList:
   - _UnSet_
+  - Controller/Amb
+  - Controller/DX
+  - Controller/MX
+  - Controller/SFX
   - DX/Dialog
   - FX/Ball-Roll
   - FX/Game-End
@@ -1601,6 +1806,7 @@ MonoBehaviour:
   _audioClip: {fileID: 0}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -1610,6 +1816,7 @@ MonoBehaviour:
   _loop: 0
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -1702,6 +1909,7 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: 11d6a99c0195b4be297df96e7e09ebd2, type: 3}
   _audioClipHandle:
     _audioClipPath: 
+    _useAudioClipPath: 1
   _dynamicAudioClipLoading: 0
   _dynamicAudioClipUnloadDelay: 0
   _dynamicAsyncAudioClipLoading: 0
@@ -1711,6 +1919,7 @@ MonoBehaviour:
   _loop: 0
   _numLoops: -1
   _loopMarkersLoaded: 0
+  _useLoopMarkers: 1
   _dontPlay: 0
   _dontStopOnDestroy: 0
   _ignoreVirtualization: 0
@@ -1720,6 +1929,39 @@ MonoBehaviour:
   _syncWithMusicTime: 0
   _markers: []
   _regions: []
+--- !u!114 &11496190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137554331, guid: 4b4e8768ed04d6a4f98af6f4f83be984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventName: Controller/SFX
+  _eventID: 0
+  _overrideEventTriggerAction: 0
+  _overrideParameters:
+    _overrideIncomingEventAction: 0
+    _incomingEventAction: 0
+    _overrideEventAction: 0
+    _type: 0
+    _floatParameter: 1
+    _stringParameter: 
+    _switchPresetData:
+      _sourcePreset: 
+      _targetPreset: 
+    _dspParameterData:
+      _dspType: 0
+      _parameter: 
+      _value: 0
+      _time: 0
+      _curve: .5
+    _transitionToSnapshotData:
+      _snapshot: 
+      _timeToReach: 0
 --- !u!114 &11498606
 MonoBehaviour:
   m_ObjectHideFlags: 1
