@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 
 	void Awake () {
 		// Load the Fabric manager by loading up the Audio scene!
-		AudioManager.LoadFabric();
+		AudioManager.TryLoadFabric();
 	}
 
 	void Start() {

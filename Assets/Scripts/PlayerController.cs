@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
 		var totalVel = vel.x + vel.y + vel.z;
 		if (totalVel > 0.0) {
 			// send to the velocity parameter which controls our sound's volume
-			Fabric.EventManager.Instance.SetParameter(FX_BallRoll, "Velocity", totalVel, gameObject);
+			AudioManager.UpdateTimelineParameter(FX_BallRoll, "Velocity", totalVel, gameObject);
 		}
 	}
 
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour {
 	// and update our variable to store the response
 	void GetLanguageSetting() {
 		// what language we are set to
-		language = Fabric.FabricManager.Instance.GetLanguageName();
+		language = AudioManager.GetFabricDXLanguage();
 	}
 
 	// Update the text on screen

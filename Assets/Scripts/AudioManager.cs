@@ -21,14 +21,14 @@ public static class AudioManager
 
 	public static void PlaySound(string n)
 	{
-		LoadFabric();
+		TryLoadFabric();
 		if (FabricLoaded)
 			playAudio(n);
 	}
 
 	public static void PlaySound(string n, GameObject ob)
 	{
-		LoadFabric();
+		TryLoadFabric();
 		if (FabricLoaded)
 			playAudioWithPosition(n, ob);
 	}
@@ -51,9 +51,17 @@ public static class AudioManager
 		}
     }
 
+	public static string GetFabricDXLanguage() {
+		return Fabric.FabricManager.Instance.GetLanguageName();
+	}
+
 	public static void SetDialogLine(string dialogEvent, string componentName)
 	{
 		Fabric.EventManager.Instance.PostEvent(componentName, Fabric.EventAction.SetAudioClipReference, dialogEvent);
+	}
+
+	public static void UpdateTimelineParameter(string eventName, string pName, float pValue, GameObject ob) {
+		Fabric.EventManager.Instance.SetParameter(eventName, pName, pValue, ob);
 	}
 
 	public static bool PauseSound(string n) {
@@ -66,7 +74,7 @@ public static class AudioManager
 		return true;
 	}
 
-	public static void LoadFabric()
+	public static void TryLoadFabric()
 	{
 		if (FabricLoaded) { // || Application.isLoadingLevel) {
 			return;
