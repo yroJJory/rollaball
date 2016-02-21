@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour {
 	void SetWinningText() {
 		// update the text to indicate game over state
 		if (language == "Norwegian") {
-			winText.text = "DU ER VINNERET!";
+			winText.text = "DU VINNER!";
 		}
 		else {
 			winText.text = "YOU WIN!";
