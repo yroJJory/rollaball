@@ -586,7 +586,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Count
 --- !u!222 &430863293
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -837,6 +837,7 @@ MonoBehaviour:
   speed: 500
   countText: {fileID: 430863292}
   winText: {fileID: 1966162461}
+  CurrentLanguage: 0
   FX_BallRoll: FX/Ball-Roll
   FX_PickupItem: FX/Pickup-Item
   FX_GameEnd: FX/Game-End

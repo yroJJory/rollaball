@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 
 #endregion
 
+#region Standard Function
+
 	void Start() {
 		// get the screen text components
 		Text countText = GetComponent("countText") as Text;
@@ -98,6 +100,10 @@ public class PlayerController : MonoBehaviour {
 			AudioManager.UpdateTimelineParameter(FX_BallRoll, "Velocity", totalVel, gameObject);
 		}
 	}
+
+#endregion
+
+#region Player Functions
 
 	// Rotate through the available languages
 	void RotateLanguage() {
@@ -190,4 +196,6 @@ public class PlayerController : MonoBehaviour {
 		// Trigger the dialog to play.
 		AudioManager.PlaySound(DX_Dialog, this.transform.gameObject);
 	}
+
+#endregion
 }
