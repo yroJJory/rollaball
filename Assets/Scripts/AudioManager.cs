@@ -51,8 +51,20 @@ public static class AudioManager
 		}
     }
 
-	public static string GetFabricDXLanguage() {
+	public static string GetFabricDXLanguageName() {
 		return Fabric.FabricManager.Instance.GetLanguageName();
+	}
+
+	public static string[] GetFabricDXLanguageArray() {
+		return Fabric.FabricManager.Instance.GetLanguageNames();
+	}
+
+	public static void SetFabricDXLanguageByName(string n) {
+		Fabric.FabricManager.Instance.SetLanguageByName(n);
+	}
+
+	public static void SetFabricDXLanguageByIndex(int n) {
+		Fabric.FabricManager.Instance.SetLanguageByIndex(n);
 	}
 
 	public static void SetDialogLine(string dialogEvent, string componentName)

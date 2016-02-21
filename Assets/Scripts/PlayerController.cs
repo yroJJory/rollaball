@@ -9,8 +9,13 @@ public class PlayerController : MonoBehaviour {
 	public Text winText;
 	private int count;
 	private string language = "English";
+	public int CurrentLanguage = 0;
+	private bool isGameOver = false;
 
-	#region Audio Events
+	// setup an array where we will store the names of available languages
+	private string[] availableLanguages;
+
+#region Audio Events
 
 	// Setup a section in the Inspector where
 	// our sound events can be displayed/customized
@@ -21,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 	public string FX_GameEnd = "FX/Game-End";
 	public string DX_Dialog = "DX/Dialog";
 
-	#endregion
+#endregion
 
 	void Start() {
 		// get the screen text components
@@ -35,20 +40,38 @@ public class PlayerController : MonoBehaviour {
 		// Start the ball-rolling sound, which will not be audible
 		// until the velocity has changed and been detected in FixedUpdate()
 		AudioManager.PlaySound(FX_BallRoll, this.transform.gameObject);
+
+		// fill our array with all the languages Fabric is setup for
+		availableLanguages = AudioManager.GetFabricDXLanguageArray();
+		language = availableLanguages[CurrentLanguage];
 	}
 
 	void Update() {
 		string lastLanguage = language;
 
 		// Check the game's language setting
-		GetLanguageSetting();
+		language = availableLanguages[CurrentLanguage];
 
 		// if the language has changed since last time
 		// update the on-screen text
 		if (lastLanguage != language) {
 			SetCountText();
+
+			// if the game is over,
+			// update the winning text
+			if (isGameOver) {
+				SetWinningText();
+			}
+
+			// update lastLanguage to match our new language
 			lastLanguage = language;
 		}
+
+		// If the user hit the spacebar, rotate through all available languages
+		if (Input.GetKeyDown ("space")) {
+			RotateLanguage();
+		}
+
 	}
 
 	void FixedUpdate () {
@@ -76,6 +99,25 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	// Rotate through the available languages
+	void RotateLanguage() {
+		// get the total number of languages Fabric knows about
+		int numLanguages = availableLanguages.Length;
+
+		// check to see if we've hit the last language
+		if ((CurrentLanguage) < (numLanguages-1)) {
+			// if not, increment by one
+			CurrentLanguage++;
+		}
+		else {
+			// otherwise, reset back to the first language
+			CurrentLanguage = 0;
+		}
+
+		// set Fabric to the next language
+		AudioManager.SetFabricDXLanguageByIndex(CurrentLanguage);
+	}
+
 	void OnTriggerEnter(Collider other) {
 		// if we collided with a pickup cube
 		if (other.gameObject.tag == "PickUp") {
@@ -96,25 +138,16 @@ public class PlayerController : MonoBehaviour {
 
 			// if we reach 12, the game is over
 			if (count >= 12) {
-				// update the text to indicate game over state
-				if (language == "Norwegian") {
-					winText.text = "DU ER VINNERET!";
-				}
-				else {
-					winText.text = "YOU WIN!";
-				}
+				// display the winning text
+				SetWinningText();
+
+				// set the game over state to true
+				isGameOver = true;
 
 				// Play the game end sound
 				AudioManager.PlaySound(FX_GameEnd, other.gameObject);
 			}
 		}
-	}
-
-	// Ask Fabric what language it is set to
-	// and update our variable to store the response
-	void GetLanguageSetting() {
-		// what language we are set to
-		language = AudioManager.GetFabricDXLanguage();
 	}
 
 	// Update the text on screen
@@ -126,6 +159,18 @@ public class PlayerController : MonoBehaviour {
 		}
 		else {
 			countText.text = "Count: " + count.ToString();
+		}
+	}
+
+	// Update the text on screen
+	// with the winning text
+	void SetWinningText() {
+		// update the text to indicate game over state
+		if (language == "Norwegian") {
+			winText.text = "DU ER VINNERET!";
+		}
+		else {
+			winText.text = "YOU WIN!";
 		}
 	}
 
