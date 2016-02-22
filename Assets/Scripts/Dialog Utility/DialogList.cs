@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -95,3 +97,5 @@ public static class DialogList {
 	}
 
 }
+
+#endif
