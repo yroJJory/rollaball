@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown ("space")) {
 			RotateLanguage();
 		}
-
 	}
 
 	void FixedUpdate () {
@@ -194,7 +193,7 @@ public class PlayerController : MonoBehaviour {
 		AudioManager.SetDialogLine(("numbers_" + (fileNumber)), DX_Dialog);
 
 		// Trigger the dialog to play.
-		AudioManager.PlaySound(DX_Dialog, this.transform.gameObject);
+		AudioManager.PlaySoundNotify(DX_Dialog, this.transform.gameObject, AudioManager.Notify);
 	}
 
 #endregion

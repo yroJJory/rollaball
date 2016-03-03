@@ -3,53 +3,55 @@ using System.Collections;
 
 public static class AudioManager
 {
+	public static bool isPlaying = false;
 
-	private static void playAudio(string eventName)
-	{
+	private static void playAudio(string eventName) {
 		//AUDIO: without position
 		Fabric.EventManager.Instance.PostEvent(eventName);
 	}
 
-	private static void playAudioWithPosition(string eventName, GameObject ob)
-	{
+	private static void playAudioWithPosition(string eventName, GameObject ob) {
 		//AUDIO: with position
 		Fabric.EventManager.Instance.PostEvent(eventName, ob);
+	}
+
+	private static void playAudioWithPositionNotify(string eventName, GameObject ob, Fabric.OnEventNotify notify) {
+		//AUDIO: with position and a callback
+		Fabric.EventManager.Instance.PostEventNotify(eventName, ob, notify);
 	}
 
 	public static bool FabricLoaded {get { return Fabric.EventManager.Instance; }}
 
 
-	public static void PlaySound(string n)
-	{
+	public static void PlaySound(string n) {
 		TryLoadFabric();
-		if (FabricLoaded)
+		if (FabricLoaded) {
 			playAudio(n);
-	}
-
-	public static void PlaySound(string n, GameObject ob)
-	{
-		TryLoadFabric();
-		if (FabricLoaded)
-			playAudioWithPosition(n, ob);
-	}
-
-	public static void StopSound(string n)
-	{
-		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
-	}
-
-	public static void StopAllSounds(string n)
-	{
-		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
-	}
-
-	public static void FadeOutMusic(string n) {
-		// fade out the music!
-		Fabric.Component component = Fabric.FabricManager.Instance.GetComponentByName(n);
-		if (component != null) {
-			component.FadeOut(0.1f, 0.5f);
 		}
-    }
+	}
+
+	public static void PlaySound(string n, GameObject ob) {
+		TryLoadFabric();
+		if (FabricLoaded) {
+			playAudioWithPosition(n, ob);
+		}
+	}
+
+	public static void PlaySoundNotify(string n, GameObject ob, Fabric.OnEventNotify notify) {
+		TryLoadFabric();
+		if (FabricLoaded) {
+			playAudioWithPositionNotify(n, ob, notify);
+			isPlaying = true;
+		}
+	}
+
+	public static void StopSound(string n) {
+		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
+	}
+
+	public static void StopAllSounds(string n) {
+		Fabric.EventManager.Instance.PostEvent(n, Fabric.EventAction.StopAll);
+	}
 
 	public static string GetFabricDXLanguageName() {
 		return Fabric.FabricManager.Instance.GetLanguageName();
@@ -67,8 +69,7 @@ public static class AudioManager
 		Fabric.FabricManager.Instance.SetLanguageByIndex(n);
 	}
 
-	public static void SetDialogLine(string dialogEvent, string componentName)
-	{
+	public static void SetDialogLine(string dialogEvent, string componentName) {
 		Fabric.EventManager.Instance.PostEvent(componentName, Fabric.EventAction.SetAudioClipReference, dialogEvent);
 	}
 
@@ -86,8 +87,13 @@ public static class AudioManager
 		return true;
 	}
 
-	public static void TryLoadFabric()
-	{
+	public static void Notify(Fabric.EventNotificationType type, string n, object info, GameObject ob) {
+		if (type == Fabric.EventNotificationType.OnAudioComponentStopped) {
+			isPlaying = false;
+		}
+	}
+
+	public static void TryLoadFabric() {
 		if (FabricLoaded) { // || Application.isLoadingLevel) {
 			return;
 		}
